@@ -16,6 +16,16 @@ contacts = db.Table('contacts', metadata, autoload=True, autoload_with=engine)
 def home():
 	return "Hello, me!"
 
+@app.route("/authed")
+def authed():
+	userid = session.get("userid")
+	if not userid:
+		return { "error": "not authenticated" }, 401
+	return {
+		"error": "success",
+		"userid": userid
+	}
+
 @app.route("/test", methods=['GET'])
 def test():
 
@@ -43,10 +53,10 @@ def logout():
 
 @app.route("/login", methods=['POST'])
 def login():
-	username = request.form.get('username')
+	email = request.form.get('email')
 	password = request.form.get('password')
 
-	query = db.select([users]).where(db.and_(users.columns.username == username, users.columns.password == password))
+	query = db.select([users]).where(db.and_(users.columns.email == email, users.columns.password == password))
 	ResultProxy = connection.execute(query)
 	result = ResultProxy.first()
 	if not result:
@@ -63,24 +73,19 @@ def login():
 def signup():
 	print(repr(request.form))
 
-	username = request.form.get('username')
 	email = request.form.get('email')
 	password = request.form.get('password')
 
-	if not username:
-		return { "error": "no username" }, 400
 	if not email:
 		return { "error": "no email" }, 400
 	if not password:
 		return { "error": "no password" }, 400
-	if len(username) > 100:
-		return { "error": "username too large (max 100)" }, 400
 	if len(email) > 100:
 		return { "error": "email too large (max 100)" }, 400
 	if len(password) > 100:
 		return { "error": "password too large (max 100)" }, 400
 
-	query = users.insert().values(username=username, email=email, password=password)
+	query = users.insert().values(email=email, password=password)
 	ResultProxy = connection.execute(query)
 
 	session['userid'] = ResultProxy.inserted_primary_key[0]
