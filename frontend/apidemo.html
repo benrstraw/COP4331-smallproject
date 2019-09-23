@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<title>Contact Manager API Demo</title>
+</head>
+<body>
+	<br>
+
+	<a href="http://api.cm.benrstraw.xyz/test"><button type="submit">Load Test Page</button></a>
+
+	<br><br>
+
+	<h3>Signup</h3>
+	<form action="http://api.cm.benrstraw.xyz/signup" method="post">
+		<div>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username">
+		</div>
+		<div>
+			<label for="email">Email address:</label>
+			<input type="email" id="email" name="email">
+		</div>
+		<div>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+
+	<h3>Login</h3>
+	<form action="http://api.cm.benrstraw.xyz/login" method="post">
+		<div>
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username">
+		</div>
+		<div>
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+
+	<h3>Logout</h3>
+	<a href="http://api.cm.benrstraw.xyz/logout">
+		<button type="submit">Submit</button>
+	</a>
+	<br><br>
+
+	<h3>Add Contact</h3>
+	<form action="api.cm.benrstraw.xyz/add" method="post">
+		<div>
+			<label for="first_name">First Name:</label>
+			<input type="text" id="first_name" name="first_name">
+		</div>
+		<div>
+			<label for="last_name">Last Name:</label>
+			<input type="text" id="last_name" name="last_name">
+		</div>
+		<div>
+			<label for="phone">Phone Number:</label>
+			<input type="text" id="phone" name="phone">
+		</div>
+		<div>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email">
+		</div>
+		<div>
+			<label for="address">Address:</label>
+			<input type="text" id="address" name="address">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+
+	<h3>Edit Contact</h3>
+	<form action="http://api.cm.benrstraw.xyz/add" method="post">
+		<div>
+			<label for="first_name">First Name:</label>
+			<input type="text" id="first_name" name="first_name">
+		</div>
+		<div>
+			<label for="last_name">Last Name:</label>
+			<input type="text" id="last_name" name="last_name">
+		</div>
+		<div>
+			<label for="phone">Phone Number:</label>
+			<input type="text" id="phone" name="phone">
+		</div>
+		<div>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email">
+		</div>
+		<div>
+			<label for="address">Address:</label>
+			<input type="text" id="address" name="address">
+		</div>
+		<div>
+			<label for="contactid">Contact ID:</label>
+			<input type="number" id="contactid" name="contactid">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+
+	<h3>Get a Contact by ID</h3>
+	<form action="http://api.cm.benrstraw.xyz/get" method="get">
+		<div>
+			<label for="contactid">Contact ID:</label>
+			<input type="number" id="contactid" name="contactid">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+
+	<h3>Get All Contacts (for Logged-In User)</h3>
+	<a href="http://api.cm.benrstraw.xyz/getall">
+		<button type="submit">Submit</button>
+	</a>
+	<br><br>
+
+	<h3>Search Contacts</h3>
+	<form action="http://api.cm.benrstraw.xyz/search" method="get">
+		<div>
+			<label for="query">Search Query:</label>
+			<input type="text" id="query" name="query">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+
+	<h3>Delete a Contact by ID</h3>
+	<form action="http://api.cm.benrstraw.xyz/delete" method="post">
+		<div>
+			<label for="contactid">Contact ID:</label>
+			<input type="number" id="contactid" name="contactid">
+		</div>
+		<button type="submit">Submit</button>
+	</form>
+	<br>
+</body>
+</html>
