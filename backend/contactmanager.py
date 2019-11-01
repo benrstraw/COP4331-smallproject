@@ -28,7 +28,6 @@ def authed():
 
 @app.route("/test", methods=['GET'])
 def test():
-
 	query = db.select([users])
 	ResultProxy = connection.execute(query)
 	result = ResultProxy.fetchall()
